@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>SDK & Module - Tab Toolbox for Website's Development Document</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SDK \u0026 Module";
+        var mkdocs_page_input_path = "appdev.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website's Development Document
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../directory/">Directory Structure & instruction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin Install & Development</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">SDK & Module</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#about-appdev">About Appdev</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#module-application">Module application</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exit">exit()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reload">reload()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_writetime_-int-level-int-msg-str-list">log_write(time_: int, level: int, msg: str) -&gt; list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_get_latestlimitint-str">log_get_latest(limit:int) -&gt; str</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_get_by_timestampstar-int-endint-str">log_get_by_timestamp(star: int, end:int) -&gt; str</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_level2namen-int-str">log_level2name(n: int) -&gt; str</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_public_path-list">get_public_path() -&gt; list</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#module-consolepy">Module console.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#plainargs-sep">plain(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logargs-sep">log(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#infoargs-sep">info(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#debugargs-sep">debug(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#successargs-sep">success(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#warnargs-sep">warn(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#warningargs-sep">warning(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#errorargs-sep">error(*args, sep=' ')</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#module-pluginpy">Module plugin.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#plugin_load">plugin_load()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_enable-list">get_enable() -&gt; list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_exist-list">get_exist() -&gt; list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#disableplugin-str-bool">disable(plugin: str) -&gt; bool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enableplugin-str-bool">enable(plugin: str) -&gt; bool</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#module-settingpy">Module setting.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get_setting_data-dict">get_setting_data() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_account_data-dict">get_account_data() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getkey-str-tablesystem_setting-any">get(key: str, table='system_setting') -&gt; any</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setkey-str-value-any-tablesystem_setting-any">set(key: str, value: any, table='system_setting') -&gt; any</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#module-uipy">Module ui.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#menu_registerpath-str-icon-href-target_self-bool">menu_register(path: str, icon="", href="", target="_self") -&gt; bool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#menu_getpath-str-dict">menu_get(path: str) -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_init_api-dict">get_init_api() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_website_setting-dict">get_website_setting() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_quickstart_iconsymbol-str-title-str-icon-str-href-str-mode0">set_quickstart_icon(symbol: str, title: str, icon: str, href: str, mode=0)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_noticesymbol-str-title-str-content-str-time_-str-none">set_notice(symbol: str, title: str, content: str, time_: str = None)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_dashboard_divsymbol-str-html-str">set_dashboard_div(symbol: str, html: str)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Open Source & Thanks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website's Development Document</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>SDK & Module</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sdk-module">SDK &amp; Module</h1>
+<h2 id="about-appdev">About Appdev</h2>
+<p>In the appdev folder of the root directory of Tab Toolbox for Website, various functions packaged by developers are stored, and the modules are also called when the program is running. The following content will introduce the function of each function in.</p>
+<p>The folder appdev contains 6 files: __init__.py, application.py, console.py, plugin.py, setting.py, ui.py.</p>
+<p>__init__.py is a script used to make the appdev folder have an initialization script with nothing in it.</p>
+<p>To start developing, you must first import modules and libraries. For example, if I want to import the application.py module, you can write:</p>
+<pre><code class="language-python">from appdev import application
+</code></pre>
+<p>or</p>
+<pre><code class="language-python">import appdev.application as application
+</code></pre>
+<h2 id="module-application">Module application</h2>
+<p>The application integrates some operations on programs, logs, and other functions.</p>
+<p>The principle is: when the program starts, a daemon process will be created first, this daemon process will officially start a main program of Tab Toolbox for Website, and wait for its operation to end. exit() will directly end the daemon process.</p>
+<h3 id="exit">exit()</h3>
+<p>Used to exit programs.</p>
+<h3 id="reload">reload()</h3>
+<p>Used to reload programs.</p>
+<p>The principle is: when the program starts, a daemon process will be created first, this daemon process will officially start a main program of Tab Toolbox for Website, and wait for its operation to end. The reload() function will directly terminate its own process. At this time, the daemon process still exists, and a new main program of Tab Toolbox for Website will be opened again.</p>
+<h3 id="log_writetime_-int-level-int-msg-str-list">log_write(time_: int, level: int, msg: str) -&gt; list</h3>
+<p>time_: time (timestamp, nanoseconds)</p>
+<p>level: level</p>
+<p>msg: content</p>
+<p>Write a log. Called by the console output of the console module, generally do not directly call this function to write logs.</p>
+<h3 id="log_get_latestlimitint-str">log_get_latest(limit:int) -&gt; str</h3>
+<p>limit: number of entries</p>
+<p>Return value: list (list), in order from new to old. [[timestamp(ns), loglevel, info]]</p>
+<p>Get the latest specified number of logs.</p>
+<h3 id="log_get_by_timestampstar-int-endint-str">log_get_by_timestamp(star: int, end:int) -&gt; str</h3>
+<p>start: start timestamp</p>
+<p>end: end timestamp</p>
+<p>Return value: list (list), in order from new to old. [[timestamp(ns), loglevel, info]]</p>
+<p>Timestamp to get log.</p>
+<h3 id="log_level2namen-int-str">log_level2name(n: int) -&gt; str</h3>
+<p>n: level</p>
+<p>Return value: The name corresponding to the level.</p>
+<p>The log level gets the corresponding name.</p>
+<h3 id="get_public_path-list">get_public_path() -&gt; list</h3>
+<p>Return value: List of public links.</p>
+<p>Note: If you set an administrator password in Tab Toolbox for Website, but still want non-administrators to access some pages, you need to get the list of public links and add the public links. Adding links is allowing regular expressions.</p>
+<pre><code class="language-python">get_public_url().append(&quot;/test&quot;) # Add /test link to allow non-admin users to access
+get_public_url().remove(&quot;/test&quot;) # Remove /test link to allow non-admin users to access
+
+get_public_url().append(&quot;/q&quot;) # Add /q link to allow access by non-admin users
+get_public_url().remove(&quot;/q/.*&quot;) # Add links using regular expressions
+</code></pre>
+<h2 id="module-consolepy">Module console.py</h2>
+<p>console integrates various styles of output to the console and automatically writes logs.</p>
+<h3 id="plainargs-sep">plain(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output plain level logs.</p>
+<h3 id="logargs-sep">log(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output log level logs.</p>
+<h3 id="infoargs-sep">info(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output info level logs.</p>
+<h3 id="debugargs-sep">debug(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output debug level logs.</p>
+<h3 id="successargs-sep">success(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output a log of success level.</p>
+<h3 id="warnargs-sep">warn(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Historical legacy function, equivalent to warning() function</p>
+<h3 id="warningargs-sep">warning(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output a log of warning level.</p>
+<h3 id="errorargs-sep">error(*args, sep=' ')</h3>
+<p>sep: The connection character between each string. (For details, please refer to Python's built-in print() function)</p>
+<p>Output error level log.</p>
+<h2 id="module-pluginpy">Module plugin.py</h2>
+<p>A module for providing actions for plugins.</p>
+<h3 id="plugin_load">plugin_load()</h3>
+<p>Load the plug-in, which is called at the beginning of the program and is generally not used.</p>
+<h3 id="get_enable-list">get_enable() -&gt; list</h3>
+<p>Return value: a list containing enabled plugins</p>
+<p>Get the plugins enabled in the database and return the plugins enabled in the database. If you want to see the number of plugins loaded by the program, please use len(plugin.plugins_pointer) to count. (Note: each item in the list here is the name of each plugin folder in the plugins folder)</p>
+<h3 id="get_exist-list">get_exist() -&gt; list</h3>
+<p>Return value: list of plugins</p>
+<p>Get a valid plugin in the plugin folder. (Note: each item in the list here is the name of each plugin folder in the plugins folder)</p>
+<h3 id="disableplugin-str-bool">disable(plugin: str) -&gt; bool</h3>
+<p>plugin: the plugin you want, e.g Hello World</p>
+<p>Return value: is enabled and successfully deleted the enabled setting in the database returns True, and vice versa</p>
+<p>Disable plugins. (note: each item in the list here is the name of each plugin folder in the plugins folder)</p>
+<h3 id="enableplugin-str-bool">enable(plugin: str) -&gt; bool</h3>
+<p>plugin: the plugin you want, e.g Hello World</p>
+<p>Return value: exists, is not enabled, and successfully sets the enabled setting in the database returns True, and vice versa</p>
+<p>to enable plugins. (note: each item in the list here is the name of each plugin folder in the plugins folder)</p>
+<h2 id="module-settingpy">Module setting.py</h2>
+<p>Used to change system settings.</p>
+<h3 id="get_setting_data-dict">get_setting_data() -&gt; dict</h3>
+<p>Get all setting information of the system in the database.</p>
+<h3 id="get_account_data-dict">get_account_data() -&gt; dict</h3>
+<p>Get all settings information for a user account in the database.</p>
+<h3 id="getkey-str-tablesystem_setting-any">get(key: str, table='system_setting') -&gt; any</h3>
+<p>key: The system sets the key value, one is found by default, it is impossible to appear more than one</p>
+<p>table: corresponding table, system_setting -- system setting website_setting -- website setting</p>
+<p>Return value: system setting data may be str int list dict</p>
+<p>Get settings.</p>
+<h3 id="setkey-str-value-any-tablesystem_setting-any">set(key: str, value: any, table='system_setting') -&gt; any</h3>
+<p>key: The system sets the key value, if not, it will be created.</p>
+<p>value: value can be int str list dict</p>
+<p>table: corresponding table, system_setting -- system setting website_setting -- website setting</p>
+<p>Set the item.</p>
+<h2 id="module-uipy">Module ui.py</h2>
+<p>The operation of the foreground frame.</p>
+<h3 id="menu_registerpath-str-icon-href-target_self-bool">menu_register(path: str, icon="", href="", target="_self") -&gt; bool</h3>
+<p>path: the path of the menu, separated by "/",</p>
+<p>Top Menu Creation Method: Top Menu</p>
+<p>Side menu creation method: top menu / side menu</p>
+<p>Submenu creation method: top menu/side menu/sister menu</p>
+<p>icon: menu icon, see Font Awesome Icons(https://fontawesome.com/), svg is allowed, the recommended size is 13~18px</p>
+<p>href: The menu points to the link</p>
+<p>target: the menu opening position, the default is _self for embedded loading.</p>
+<p>Registration menu.</p>
+<pre><code class="language-python">ui.menu_register(&quot;Hello World&quot;)
+ui.menu_register(&quot;Hello World/实例&quot;, &quot;fa-solid fa-code&quot;, &quot;/helloworld&quot;)
+</code></pre>
+<h3 id="menu_getpath-str-dict">menu_get(path: str) -&gt; dict</h3>
+<p>path: the path of the menu, separated by "/"</p>
+<p>Return value: dictionary, menu data title icon href target</p>
+<p>Get the menu dictionary, returns an empty dictionary if it does not exist.</p>
+<h3 id="get_init_api-dict">get_init_api() -&gt; dict</h3>
+<p>Get the initialization api, the init API of the front-end framework is generally not used.</p>
+<h3 id="get_website_setting-dict">get_website_setting() -&gt; dict</h3>
+<p>Get parameters for theme template rendering. The value in the website_setting table in the database, obtained at startup.</p>
+<h3 id="set_quickstart_iconsymbol-str-title-str-icon-str-href-str-mode0">set_quickstart_icon(symbol: str, title: str, icon: str, href: str, mode=0)</h3>
+<p>symbol: the symbol used for identification</p>
+<p>title: button title</p>
+<p>icon: button icon, supports svg icon</p>
+<p>href: button to open the link</p>
+<p>mode: open mode 0--frame tab open 1--frame tab this page switch</p>
+<p>Add a library shortcut function button, which is the shortcut entry on the home page (the home page defaults to the first 8)</p>
+<pre><code class="language-python">ui.set_quickstart_icon(&quot;helloworld&quot;, &quot;你好世界&quot;, &quot;fa-solid fa-earth-africa&quot;, &quot;/helloworld&quot;, 0)
+</code></pre>
+<h3 id="set_noticesymbol-str-title-str-content-str-time_-str-none">set_notice(symbol: str, title: str, content: str, time_: str = None)</h3>
+<p>symbol: announcement logo</p>
+<p>title: Announcement title</p>
+<p>content: announcement content (html)</p>
+<p>time_: announcement time (default current time xxxx-xx-xx xx:xx)</p>
+<p>Add or change announcements.</p>
+<pre><code class="language-python">ui.set_notice(&quot;helloworld&quot;, &quot;来自 Hello World 插件的公告&quot;,
+              &quot;&lt;p&gt;这个是一条来自 Hello World 测试公告，您可以在 Python 中 from appdev import ui&lt;/p&gt;\n&quot;
+              &quot;&lt;p&gt;再使用 set_notice(symbol, title, content, [time_]) 来添加！&lt;/p&gt;&quot;)
+</code></pre>
+<h3 id="set_dashboard_divsymbol-str-html-str">set_dashboard_div(symbol: str, html: str)</h3>
+<p>symbol: identification</p>
+<p>html: html code</p>
+<p>Put cards on the dashboard page.</p>
+<pre><code class="language-python">ui.set_dashboard_div(&quot;helloworld1&quot;, &quot;&quot;&quot;
+        &lt;div class=&quot;layui-col-md6&quot;&gt;
+            &lt;div class=&quot;layui-card&quot;&gt;
+                &lt;div class=&quot;layui-card-header&quot;&gt;&lt;i class=&quot;fa-solid fa-flask-vial icon icon-blue&quot;&gt;&lt;/i&gt;helloworld插件测试&lt;/div&gt;
+                &lt;div class=&quot;layui-card-body&quot;&gt;
+                    这个是一条来自 Hello World 测试卡片，您可以在 Python 中 from appdev import ui &lt;br&gt;
+                    然后使用 ui.set_dashboard_div(symbol, html) 来添加这一个卡片。  
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;&quot;&quot;)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../plugin/" class="btn btn-neutral float-left" title="Plugin Install & Development"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../thanks/" class="btn btn-neutral float-right" title="Open Source & Thanks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../plugin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../thanks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

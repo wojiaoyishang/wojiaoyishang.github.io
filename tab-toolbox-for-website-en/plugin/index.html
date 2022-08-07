@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Plugin Install & Development - Tab Toolbox for Website's Development Document</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Plugin Install \u0026 Development";
+        var mkdocs_page_input_path = "plugin.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website's Development Document
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../directory/">Directory Structure & instruction</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Plugin Install & Development</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#special-noun-description">Special noun description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugin-install-using">Plugin Install &amp; Using</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#development-enable-plugin-process-explained">Development: Enable plugin process explained</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#development-plugin-structure">Development: Plugin Structure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#directory-structure">Directory Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#about-pluginjson">About plugin.json</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#about-__init__py">About __init__.py</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reference-case-hello-world-plugin">Reference case Hello World plugin</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../appdev/">SDK & Module</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Open Source & Thanks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website's Development Document</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Plugin Install & Development</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="plugin-install-development">Plugin Install &amp; Development</h1>
+<h2 id="special-noun-description">Special noun description</h2>
+<p>Plugin (PLUGIN): Not only refers to the available modules, but also refers to the <strong>plugin folder name</strong> in the plugins directory in Tab Toolbox for Website. This is allowed so that different plugins can use the same name.</p>
+<p>Plugin name (PLUGIN_NAME): The name of the plugin is different from the plugin in that the plugin name refers to <strong>the name of the plugin</strong>, not the folder name of the plugin.</p>
+<h2 id="plugin-install-using">Plugin Install &amp; Using</h2>
+<p>(1) You need to download your plugin and put it in the plugins directory of Tab Toolbox for Website.</p>
+<p><img alt="Plugins Folder" src="/img/plugin_0.png" /></p>
+<p>(2) Then you need to open the plugin management page in the webpage of Tab Toolbox for Website to enable the plugin.</p>
+<p><img alt="Enable Plugin" src="/img/plugin_1.png" /></p>
+<h2 id="development-enable-plugin-process-explained">Development: Enable plugin process explained</h2>
+<p>(1) When the user enables the plug-in, the web page will send commands to the server through the API interface. This API interface is written under core/api_core.py. The corresponding plug-in and operation name will be provided on the web page. When the server will disable and enable the operation through the operation name and the corresponding plug-in.</p>
+<p>(2) If enabled, the plugin will be added to enable_plugins in the system_setting table in the system database file. On the contrary, it deletes the information of the corresponding plug-in.</p>
+<p>(3) The server will call the reload() function in the application module in the appdev package to restart. For the reload() function you can see the details in the SDK &amp; Module chapter.</p>
+<p>(4) When restarting, the server will reload the plugin.</p>
+<h2 id="development-plugin-structure">Development: Plugin Structure</h2>
+<h3 id="directory-structure">Directory Structure</h3>
+<p>For plugins, we artificially prescribe some specific structures,</p>
+<p>A reasonable plugin must contain two files:</p>
+<pre><code class="language-text">DEVELOPEMENT PLUGIN
+│ __init__.py  # Plugin main script
+└─ plugin.json  # The description file of the plugin
+</code></pre>
+<h3 id="about-pluginjson">About plugin.json</h3>
+<p>The content in plugin.json cannot lose the following information:</p>
+<pre><code class="language-json">{
+   &quot;PLUGIN_NAME&quot;: &quot;Plugin Name&quot;,
+   &quot;PLUGIN_DESCRIPTION&quot;: &quot;Plugin Introduction&quot;,
+   &quot;PLUGIN_VERSION&quot;: &quot;Plugin Version&quot;,
+   &quot;PLUGIN_DEVELOPER&quot;: &quot;Plugin Author&quot;,
+
+   &quot;PLUGIN_WEBSITE&quot;: &quot;Plugin URL&quot;,
+   &quot;PLUGIN_EMAIL&quot;: &quot;Plugin Email&quot;,
+   &quot;PLUGIN_COPYRIGHT&quot;: &quot;Plugin Copyright&quot;
+}
+</code></pre>
+<p>You can substitute the value with empty text, but don't lose the key.</p>
+<h3 id="about-__init__py">About __init__.py</h3>
+<p>__init__.py is a script that is called by default when the plugin is enabled. Remember, no infinite loops are allowed in this script, otherwise it will block the toolbox startup.</p>
+<h3 id="reference-case-hello-world-plugin">Reference case Hello World plugin</h3>
+<p>Here is an example of the Hello World plugin:</p>
+<p>Directory Structure:</p>
+<pre><code class="language-text">DEVELOPEMENT PLUGIN
+├─ templates
+│ └─ hello world.html # The main page file of the plugin
+│ __init__.py # Plugin main script
+└─ plugin.json # The description file of the plugin
+</code></pre>
+<p>Note: The template file is named in the way of plugin name_template name as far as possible to prevent confusion with templates of other plugins.</p>
+<p>__init__.py content:</p>
+<pre><code class="language-python">import random
+
+import appdev.ui as ui
+from app import app
+
+from flask import Blueprint, render_template
+
+# 插件允许定义蓝图，不过蓝图的绑定需要自己来，见代码最后注册蓝图的地方
+blueprint = Blueprint('helloWorld', __name__, template_folder='templates', static_folder=&quot;static&quot;,
+                      url_prefix=&quot;/helloworld&quot;)
+
+# 注册菜单
+ui.menu_register(&quot;Hello World&quot;)
+ui.menu_register(&quot;Hello World/实例&quot;, &quot;fa-solid fa-code&quot;, &quot;/helloworld&quot;)
+
+# 注册快捷按钮
+ui.set_quickstart_icon(&quot;helloworld&quot;, &quot;你好世界&quot;, &quot;fa-solid fa-earth-africa&quot;, &quot;/helloworld&quot;, 0)
+
+
+# 添加一则公告
+ui.set_notice(&quot;helloworld&quot;, &quot;来自 Hello World 插件的公告&quot;,
+              &quot;&lt;p&gt;这个是一条来自 Hello World 测试公告，您可以在 Python 中 from appdev import ui&lt;/p&gt;\n&quot;
+              &quot;&lt;p&gt;再使用 set_notice(symbol, title, content, [time_]) 来添加！&lt;/p&gt;&quot;)
+
+# 仪表盘添加卡片
+ui.set_dashboard_div(&quot;helloworld1&quot;, &quot;&quot;&quot;
+        &lt;div class=&quot;layui-col-md6&quot;&gt;
+            &lt;div class=&quot;layui-card&quot;&gt;
+                &lt;div class=&quot;layui-card-header&quot;&gt;&lt;i class=&quot;fa-solid fa-flask-vial icon icon-blue&quot;&gt;&lt;/i&gt;helloworld插件测试&lt;/div&gt;
+                &lt;div class=&quot;layui-card-body&quot;&gt;
+                    这个是一条来自 Hello World 测试卡片，您可以在 Python 中 from appdev import ui &lt;br&gt;
+                    然后使用 ui.set_dashboard_div(symbol, html) 来添加这一个卡片。  
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;&quot;&quot;)
+ui.set_dashboard_div(&quot;helloworld2&quot;, f&quot;&quot;&quot;
+        &lt;div class=&quot;layui-col-md6&quot;&gt;
+            &lt;div class=&quot;layui-card&quot;&gt;
+                &lt;div class=&quot;layui-card-header&quot;&gt;&lt;i class=&quot;fa-solid fa-flask-vial icon icon-blue&quot;&gt;&lt;/i&gt;helloworld插件测试&lt;/div&gt;
+                &lt;div class=&quot;layui-card-body&quot;&gt;
+                    一个插件可以创建多个卡片，而且可以定义不同内容。比如生成随机数，你今天的幸运数字是：{random.randint(10000, 99999)} 
+                    &lt;br&gt;&lt;br&gt;&lt;br&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;&quot;&quot;)
+
+
+@blueprint.route(&quot;/&quot;)
+def helloworld():
+    return render_template(&quot;questions_index.html&quot;, )
+
+
+# 等完全加载过一遍代码后，再调用app.py文件中的app注册蓝图函数注册蓝图
+app.register_blueprint(blueprint)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../directory/" class="btn btn-neutral float-left" title="Directory Structure & instruction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../appdev/" class="btn btn-neutral float-right" title="SDK & Module">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../directory/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../appdev/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Quickstart - Tab Toolbox for Website's Development Document</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quickstart";
+        var mkdocs_page_input_path = "quickstart.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website's Development Document
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Quickstart</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install">Install</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#clone-the-repository">Clone the repository</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-python-envirnment">Install Python Envirnment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-python-module">Install Python Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#start-directly">Start directly</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#start-commandly">Start commandly</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visit-site">Visit site</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#about-configuration-file">About configuration file</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../directory/">Directory Structure & instruction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin Install & Development</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../appdev/">SDK & Module</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Open Source & Thanks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website's Development Document</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Quickstart</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="getting-started-with-tab-toolbox-for-website">Getting Started with Tab Toolbox for Website</h1>
+<h2 id="install">Install</h2>
+<h3 id="clone-the-repository">Clone the repository</h3>
+<p>All roads lead to Rome, e.g. you can use Git.</p>
+<p><code>$ git clone git@github.com:wojiaoyishang/Tab-Toolbox-for-Website.git</code></p>
+<h3 id="install-python-envirnment">Install Python Envirnment</h3>
+<p>After clone the repository, you should check Python Envirnment on your computer. This programme based on Python and please note that your Python version <strong>must be 3.8.0 and above</strong>. version 3.7.X not tested.</p>
+<p>The Python installation address can be downloaded from the Python official website, the link is here: <a href="https://www.python.org/downloads/release/python-380/">https://www.python.org/downloads/release/python-380/</a></p>
+<h3 id="install-python-module">Install Python Module</h3>
+<p>After confirming that the Python environment is correct, please confirm whether the modules supported in Python are installed. The modules necessary for Tab Toolbox for Website to run are in requirements.txt in the root directory of the repository. The content is as follows:</p>
+<pre><code>bs4==0.0.1
+Flask==2.1.3
+gevent==20.6.2
+MarkupSafe==2.1.1
+pandas==1.4.3
+psutil==5.7.2
+requests==2.24.0
+lxml==4.5.2
+</code></pre>
+<p>You can use pip to install, like this:</p>
+<p><code>$ pip install -r requirements.txt</code></p>
+<p>also you can try,</p>
+<p><code>$ python -m pip install -r requirements.txt</code></p>
+<h3 id="start-directly">Start directly</h3>
+<p>After you have ensured that Python and its modules are installed correctly, you can run the tests. Start main.py with Python.</p>
+<p><code>$ python main.py</code></p>
+<p><img alt="start test" src="/img/quickstart_0.png" /></p>
+<p>You can configure Tab Toolbox for Website simply by following the prompts output by the program. The configuration will then be written to config.py in the root directory of Tab Toolbox for Website. and will not ask for configuration again on next direct boot. The configuration guide is only in Chinese, and the following is the corresponding translation...</p>
+<p>Chinese:</p>
+<pre><code class="language-text">* 嘿！你好！(￣▽￣)／看来这是你第一次打开此程序，我们需要进行一些配置。当然您也可以使用命令行来运行此程序，更多信息请查看我们的文档！
+* 总之我们先开始配置吧！
+
+* 首先，此程序运行时绑定的IP地址 为（默认为 127.0.0.1，不用担心输错，您可以在配置文件 config.py 中修改）
+Enter:
+* Set HOST to 127.0.0.1
+* 其次，要绑定那个端口呢？（默认为 99 ）
+Enter:
+* Set POST to 99
+* OK了！现在我们将运行程序，对于调试模式与发布模式的设定请自行修改 config.py 文件！
+</code></pre>
+<p>English:</p>
+<pre><code class="language-text">* Hey! Hello! (￣▽￣)／ This is your first time running this software right? We need some configuration. Of course, you can also use the command line to run this program, check out our documentation for more info!
+* Anyway, let's start configuring it!
+
+* First, the IP address that this program is bound to when running is (the default is 127.0.0.1, don't worry about typing it wrong, you can modify it in the configuration file config.py)
+Enter:
+* Set HOST to 127.0.0.1
+* Second, what port to bind to? (default is 99 )
+Enter:
+* Set POST to 99
+* OK! Now we will run the program, please modify the config.py file for the settings of debug mode and release mode!
+</code></pre>
+<h3 id="start-commandly">Start commandly</h3>
+<p>In addition, we also provide a way to start from the command line, pass in -h to view help.</p>
+<pre><code class="language-text">python main.py -h
+Usage: main.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -H host, --host=host  Host for Running
+  -p port, --port=port  Port for Running
+  -D, --development     Development Mode
+  -d, --debug           Debug Mode
+</code></pre>
+<p>The following is an example of startup:</p>
+<p>(1) Bind 0.0.0.0:8080, you can use</p>
+<p><strong>Note: Please do not arbitrarily bind IP to 0.0.0.0, which may lead to the risk of public network access. </strong></p>
+<p><code>$ python main.py -H 0.0.0.0 -p 8080</code></p>
+<p>or you can, </p>
+<p><code>$ python main.py --host=0.0.0.0 --port=8080</code></p>
+<p>(2) Turn on Development mode and Debug mode</p>
+<p><strong>Note: For developer mode and Debug mode, IP address and port parameters must exist. </strong></p>
+<p><code>$ python main.py --host=0.0.0.0 --port=8080 -D -d</code></p>
+<p>or</p>
+<p><code>$ python main.py --host=0.0.0.0 --port=8080 --development --debug</code></p>
+<p>It should be noted that <strong>the configuration file will be automatically rewritten when you start using the command line</strong>, even if you use the direct startup method next time, the configuration at the last command line startup will be directly used. About the configuration file, it will be explained below.</p>
+<h2 id="visit-site">Visit site</h2>
+<p>Access the site according to the bound IP and port, if everything is normal, the following page will be displayed:</p>
+<p><img alt="hello" src="/img/quickstart_1.png" /></p>
+<h2 id="about-configuration-file">About configuration file</h2>
+<p>The content of the configuration file config.py is as follows:</p>
+<pre><code class="language-python"># Note that this file is only used to configure some built-in content of the program, such as operating mode, version number, etc. It stands to reason that this file is already set up at the time of publication and does not need to be changed.
+
+DEVELOPMENT = False  # If you change this variable then it will open development mode instead of release mode
+DEBUG = False   # Whether this is in Debug mode mainly controls the settings in app.run(), which can be ignored if it is started from the command line
+HOST = &quot;127.0.0.1&quot;  # Set the running IP
+PORT = 99  # run port
+FIRST_RUNNING = False  # Is it the first time to run
+
+TAB_TOOLBOX_VERSION = &quot;1.0.0.1&quot;
+</code></pre>
+<p>When development mode is on, the app.run() function in flask is used to run the program instead of WSGIServer .</p>
+<p>Debug mode can only be used if development mode is turned on, which makes the Debug parameter of app.run() True .</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../directory/" class="btn btn-neutral float-right" title="Directory Structure & instruction">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../directory/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

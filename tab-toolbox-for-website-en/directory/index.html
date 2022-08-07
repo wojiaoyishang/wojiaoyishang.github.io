@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Directory Structure & instruction - Tab Toolbox for Website's Development Document</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Directory Structure \u0026 instruction";
+        var mkdocs_page_input_path = "directory.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website's Development Document
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Directory Structure & instruction</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#noun-description">Noun description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-directory-structure">Basic directory structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#appdev-file-description">Appdev file description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-file-description">Data file description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#core-file-description">Core file description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#template-file-description">Template file description</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin Install & Development</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../appdev/">SDK & Module</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">Open Source & Thanks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website's Development Document</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Directory Structure & instruction</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="directory-structure-instruction">Directory Structure &amp; Instruction</h1>
+<h2 id="noun-description">Noun description</h2>
+<p>Web framework：The layuimini framework used by Tab Toolbox for Website.</p>
+<h2 id="basic-directory-structure">Basic directory structure</h2>
+<pre><code class="language-text">Tab Toolbox for Website
+│   app.py # flask main program start
+│   config.py # Initial configuration file
+│   main.py # Start the main program
+│   reloading.py # for automatic restart
+│
+├─appdev # The built-in basic module for program development
+│
+├─core # Program core module
+│
+├─data # Program data storage
+│
+├─plugins # Program plugin storage
+│
+├─static # Program resource file
+│
+└─templates # Program webpage template
+</code></pre>
+<h2 id="appdev-file-description">Appdev file description</h2>
+<pre><code class="language-text">appdev
+│   application.py # About the operation of the program
+│   console.py # Console (log) output operation
+│   plugin.py # Plugin management and operation
+│   setting.py # Program settings and operations (database operations)
+│   ui.py # Web page control registration and operation
+└─   __init__.py # Nothing.......
+</code></pre>
+<h2 id="data-file-description">Data file description</h2>
+<pre><code class="language-text">data
+│   system # System settings
+└─  log # log record
+</code></pre>
+<h2 id="core-file-description">Core file description</h2>
+<pre><code class="language-text">core
+│   api_route.py # API request of Web framework
+└─  page_route.py # page rendering request
+</code></pre>
+<h2 id="template-file-description">Template file description</h2>
+<pre><code class="language-text">templates
+│   core-about.html # About page
+│   core-account.html # Account settings page
+│   core-dashboard.html # Dashboard page
+│   core-index.html # layuimini web framework
+│   core-log.html # log page
+│   core-login.html # Admin password verification page
+│   core-plugin.html # Plugin management page
+│   core-quickstart.html # Quick start widget page
+└─  core-template.html # Template page (inherited in addition to the frame Web framework)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../quickstart/" class="btn btn-neutral float-left" title="Quickstart"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../plugin/" class="btn btn-neutral float-right" title="Plugin Install & Development">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../quickstart/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../plugin/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
