@@ -113,9 +113,9 @@
 <p>Plugin name (PLUGIN_NAME): The name of the plugin is different from the plugin in that the plugin name refers to <strong>the name of the plugin</strong>, not the folder name of the plugin.</p>
 <h2 id="plugin-install-using">Plugin Install &amp; Using</h2>
 <p>(1) You need to download your plugin and put it in the plugins directory of Tab Toolbox for Website.</p>
-<p><img alt="Plugins Folder" src="/img/plugin_0.png" /></p>
+<p><img alt="Plugins Folder" src="../img/plugin_0.png" /></p>
 <p>(2) Then you need to open the plugin management page in the webpage of Tab Toolbox for Website to enable the plugin.</p>
-<p><img alt="Enable Plugin" src="/img/plugin_1.png" /></p>
+<p><img alt="Enable Plugin" src="../img/plugin_1.png" /></p>
 <h2 id="development-enable-plugin-process-explained">Development: Enable plugin process explained</h2>
 <p>(1) When the user enables the plug-in, the web page will send commands to the server through the API interface. This API interface is written under core/api_core.py. The corresponding plug-in and operation name will be provided on the web page. When the server will disable and enable the operation through the operation name and the corresponding plug-in.</p>
 <p>(2) If enabled, the plugin will be added to enable_plugins in the system_setting table in the system database file. On the contrary, it deletes the information of the corresponding plug-in.</p>
