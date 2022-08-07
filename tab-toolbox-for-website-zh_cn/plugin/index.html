@@ -113,9 +113,9 @@
 <p>插件名(PLUGIN_NAME)：插件的名称与插件不同的是插件名指的是<strong>插件的名称</strong>，而不是插件的文件夹名。</p>
 <h2 id="_3">插件的安装与使用</h2>
 <p>(1) 您需要下载好您的插件，并放入 Tab Toolbox for Website 的 plugins 目录下。</p>
-<p><img alt="插件文件夹" src="/img/plugin_0.png" /></p>
+<p><img alt="插件文件夹" src="../img/plugin_0.png" /></p>
 <p>(2) 接着您需要打开 Tab Toolbox for Website 的网页中的插件管理页面 进行启用插件。</p>
-<p><img alt="启用插件" src="/img/plugin_1.png" /></p>
+<p><img alt="启用插件" src="../img/plugin_1.png" /></p>
 <h2 id="_4">开发：启用插件过程解释</h2>
 <p>(1) 当用户启用插件时，网页端会通过API接口向服务器发送命令。此API接口写在 core/api_core.py 下。网页端会提供对应的 插件 和 操作名称 。当服务器会通过操作名称和对应的插件进行禁启用操作。</p>
 <p>(2) 若是启用，则会在 system 数据库文件中的 system_setting 表中的 enable_plugins 中添加插件。反之，则是删除对应插件的信息。</p>
