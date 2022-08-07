@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>快速开始 - Tab Toolbox for Website 开发文档</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u5feb\u901f\u5f00\u59cb";
+        var mkdocs_page_input_path = "quickstart.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website 开发文档
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">主页</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">快速开始</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">安装</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">克隆仓库</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">安装 Python 运行环境</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python_1">安装 Python 的模块</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">启动</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">直接启动</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">命令行启动</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">访问站点</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">关于配置文件</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../directory/">目录结构以及其文件说明</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../plugin/">插件的安装与开发</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../appdev/">开发包与模块</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">开源与感谢</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website 开发文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>快速开始</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tab-toolbox-for-website">Tab Toolbox for Website 快速入门</h1>
+<h2 id="_1">安装</h2>
+<h3 id="_2">克隆仓库</h3>
+<p>克隆仓库，方法不唯一，例如使用 Git 命令：</p>
+<p><code>$ git clone git@github.com:wojiaoyishang/Tab-Toolbox-for-Website.git</code></p>
+<h3 id="python">安装 Python 运行环境</h3>
+<p>克隆仓库完成之后，您需要检查您的电脑中是否存在 Python 环境，因为程序基于 Python 运行。请注意您的 Python 版本必须在 <strong>3.8.0 及以上</strong>，3.7.X 的 Python 版本并未进行测试。</p>
+<p>Python 的安装地址可以前往 Python 官网下载，链接在这里：<a href="https://www.python.org/downloads/release/python-380/">https://www.python.org/downloads/release/python-380/</a></p>
+<h3 id="python_1">安装 Python 的模块</h3>
+<p>在确认 Python 的环境准确无误后，请确认 Python 中所支持的模块是否安装。对于 Tab Toolbox for Website 运行必要的模块在 仓库根目录下的 requirements.txt 中。内容如下：</p>
+<pre><code>bs4==0.0.1
+Flask==2.1.3
+gevent==20.6.2
+MarkupSafe==2.1.1
+pandas==1.4.3
+psutil==5.7.2
+requests==2.24.0
+lxml==4.5.2
+</code></pre>
+<p>可以使用 pip 进行安装，如下：</p>
+<p><code>$ pip install -r requirements.txt</code></p>
+<p>或者您可以试试，</p>
+<p><code>$ python -m pip install -r requirements.txt</code></p>
+<h2 id="_3">启动</h2>
+<h3 id="_4">直接启动</h3>
+<p>在确保准确无误安装好 Python 以及其 模块 后，可以进行运行测试。使用 Python 启动 main.py 。</p>
+<p><code>$ python main.py</code></p>
+<p><img alt="启动示例" src="/img/quickstart_0.png" /></p>
+<p>您可以根据程序输出的提示简单配置 Tab Toolbox for Website 。随后配置将会写入 Tab Toolbox for Website 根目录下的 config.py 中。并在下次直接启动时不会再次要求配置。配置引导仅有中文，下面是对应的翻译......</p>
+<p>Chinese:</p>
+<pre><code class="language-text">* 嘿！你好！(￣▽￣)／看来这是你第一次打开此程序，我们需要进行一些配置。当然您也可以使用命令行来运行此程序，更多信息请查看我们的文档！
+* 总之我们先开始配置吧！
+
+* 首先，此程序运行时绑定的IP地址 为（默认为 127.0.0.1，不用担心输错，您可以在配置文件 config.py 中修改）
+Enter:
+* Set HOST to 127.0.0.1
+* 其次，要绑定那个端口呢？（默认为 99 ）
+Enter:
+* Set POST to 99
+* OK了！现在我们将运行程序，对于调试模式与发布模式的设定请自行修改 config.py 文件！
+</code></pre>
+<p>English:</p>
+<pre><code class="language-text">* Hey! Hello! (￣▽￣)／ This is your first time running this software right? We need some configuration. Of course, you can also use the command line to run this program, check out our documentation for more info!
+* Anyway, let's start configuring it!
+
+* First, the IP address that this program is bound to when running is (the default is 127.0.0.1, don't worry about typing it wrong, you can modify it in the configuration file config.py)
+Enter:
+* Set HOST to 127.0.0.1
+* Second, what port to bind to? (default is 99 )
+Enter:
+* Set POST to 99
+* OK! Now we will run the program, please modify the config.py file for the settings of debug mode and release mode!
+</code></pre>
+<h3 id="_5">命令行启动</h3>
+<p>我们除此之外还提供了命令行启动的方式，传入 -h 可查看帮助。</p>
+<pre><code class="language-text">python main.py -h
+Usage: main.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -H host, --host=host  Host for Running
+  -p port, --port=port  Port for Running
+  -D, --development     Development Mode
+  -d, --debug           Debug Mode
+</code></pre>
+<p>下面是启动的示例：</p>
+<p>(1) 绑定 0.0.0.0:8080 ，您可以使用</p>
+<p><strong>注意：请不要随意将 IP 绑定在 0.0.0.0 上，这可能会导致公网访问的风险。</strong></p>
+<p><code>$ python main.py -H 0.0.0.0 -p 8080</code></p>
+<p>或者使用 </p>
+<p><code>$ python main.py --host=0.0.0.0 --port=8080</code></p>
+<p>(2) 打开开发模式与 Debug 模式</p>
+<p><strong>注意：开发者模式与Debug模式，必须存在IP地址与端口参数。</strong></p>
+<p><code>$ python main.py --host=0.0.0.0 --port=8080 -D -d</code></p>
+<p>或者使用</p>
+<p><code>$ python main.py --host=0.0.0.0 --port=8080 --development --debug</code></p>
+<p>需要注意的是，<strong>使用命令行启动时会自动改写配置文件</strong>，即使您下次在使用直接启动的方式，也会直接使用上一次命令行启动时的配置。关于配置文件，下面会加以说明。</p>
+<h2 id="_6">访问站点</h2>
+<p>根据绑定的 IP 与 端口 访问站点，如果一切正常将会显示如下页面：
+<img alt="效果图" src="/img/quickstart_1.png" /></p>
+<h2 id="_7">关于配置文件</h2>
+<p>配置文件 config.py 的内容如下：</p>
+<pre><code class="language-python"># 注意此文件仅用于配置程序的一些内置内容，比如运行模式、版本号等。按理来讲在发布时此文件已经设定好，不需要更改。
+
+DEVELOPMENT = False  # 如果更改这个变量那么就会打开开发模式，而不是发布模式
+DEBUG = False   # 这个是否为 Debug 模式，主要控制的是 app.run() 中的设置，若是命令行启动则可以忽略
+HOST = &quot;127.0.0.1&quot;  # 设置运行 IP
+PORT = 99  # 运行端口
+FIRST_RUNNING = False  # 是否第一次运行
+
+TAB_TOOLBOX_VERSION = &quot;1.0.0.1&quot;
+</code></pre>
+<p>开发模式打开时，会使用 flask 中的 app.run() 函数运行程序，而不是 WSGIServer 。</p>
+<p>Debug 模式必须在 开发模式 打开的前提下才能使用，这会让 app.run() 的 Debug 参数为 True 。</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="主页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../directory/" class="btn btn-neutral float-right" title="目录结构以及其文件说明">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../directory/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

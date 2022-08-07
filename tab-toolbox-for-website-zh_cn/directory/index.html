@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>目录结构以及其文件说明 - Tab Toolbox for Website 开发文档</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u76ee\u5f55\u7ed3\u6784\u4ee5\u53ca\u5176\u6587\u4ef6\u8bf4\u660e";
+        var mkdocs_page_input_path = "directory.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website 开发文档
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">主页</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">快速开始</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">目录结构以及其文件说明</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">名词说明</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">基本的目录结构</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">开发模块说明</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">数据文件说明</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">核心文件说明</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">模板文件说明</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../plugin/">插件的安装与开发</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../appdev/">开发包与模块</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">开源与感谢</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website 开发文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>目录结构以及其文件说明</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">目录结构以及其文件说明</h1>
+<h2 id="_2">名词说明</h2>
+<p>网页框架：Tab Toolbox for Website 采用的 layuimini 框架。</p>
+<h2 id="_3">基本的目录结构</h2>
+<pre><code class="language-text">Tab Toolbox for Website
+│   app.py  # flask 主程序启动
+│   config.py  # 初始配置文件
+│   main.py  # 启动主程序
+│   reloading.py  # 用于自动重启
+│
+├─appdev  # 程序开发内置的基本模块
+│
+├─core  # 程序核心模块
+│
+├─data  # 程序数据存放
+│
+├─plugins  # 程序插件存放
+│
+├─static  # 程序资源文件
+│
+└─templates  # 程序网页模板
+</code></pre>
+<h2 id="_4">开发模块说明</h2>
+<pre><code class="language-text">appdev
+│    application.py  # 关于程序的操作
+│    console.py  # 控制台（日志）输出操作
+│    plugin.py  # 插件管理与操作
+│    setting.py  # 程序设置与操作（数据库操作）
+│    ui.py  # 网页控件注册与操作
+└─   __init__.py  # Nothing......
+</code></pre>
+<h2 id="_5">数据文件说明</h2>
+<pre><code class="language-text">data
+│    system  # 系统设置
+└─   log  # 日志记录
+</code></pre>
+<h2 id="_6">核心文件说明</h2>
+<pre><code class="language-text">core  # 程序核心模块
+│    api_route.py  # 网页框架的 API 请求
+└─   page_route.py  # 页面渲染请求
+</code></pre>
+<h2 id="_7">模板文件说明</h2>
+<pre><code class="language-text">templates
+│   core-about.html  # 关于页面
+│   core-account.html  # 账户设置页面
+│   core-dashboard.html  # 仪表盘页面
+│   core-index.html  # layuimini 网页框架
+│   core-log.html  # 日志页面
+│   core-login.html  # 管理员密码验证页面
+│   core-plugin.html  # 插件管理页面
+│   core-quickstart.html  # 快速开始小工具页面
+└─  core-template.html  # 模板页面（除框架网页框架外继承）
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../quickstart/" class="btn btn-neutral float-left" title="快速开始"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../plugin/" class="btn btn-neutral float-right" title="插件的安装与开发">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../quickstart/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../plugin/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

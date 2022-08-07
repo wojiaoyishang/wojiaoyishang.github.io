@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>插件的安装与开发 - Tab Toolbox for Website 开发文档</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u63d2\u4ef6\u7684\u5b89\u88c5\u4e0e\u5f00\u53d1";
+        var mkdocs_page_input_path = "plugin.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website 开发文档
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">主页</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">快速开始</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../directory/">目录结构以及其文件说明</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">插件的安装与开发</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">特殊名词说明</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">插件的安装与使用</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">开发：启用插件过程解释</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">开发：插件的结构</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">目录结构</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pluginjson">关于 plugin.json</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#__init__py">关于 __init__.py</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hello-world">参考案例 Hello World 插件</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../appdev/">开发包与模块</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">开源与感谢</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website 开发文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>插件的安装与开发</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">插件的安装与开发</h1>
+<h2 id="_2">特殊名词说明</h2>
+<p>插件(PLUGIN): 不仅仅指的是可以用的模块，Tab Toolbox for Website 中还指在 plugins 目录下的<strong>插件的文件夹名称</strong>。这样做允许是为了让不同的插件可以使用同一个名称。</p>
+<p>插件名(PLUGIN_NAME)：插件的名称与插件不同的是插件名指的是<strong>插件的名称</strong>，而不是插件的文件夹名。</p>
+<h2 id="_3">插件的安装与使用</h2>
+<p>(1) 您需要下载好您的插件，并放入 Tab Toolbox for Website 的 plugins 目录下。</p>
+<p><img alt="插件文件夹" src="/img/plugin_0.png" /></p>
+<p>(2) 接着您需要打开 Tab Toolbox for Website 的网页中的插件管理页面 进行启用插件。</p>
+<p><img alt="启用插件" src="/img/plugin_1.png" /></p>
+<h2 id="_4">开发：启用插件过程解释</h2>
+<p>(1) 当用户启用插件时，网页端会通过API接口向服务器发送命令。此API接口写在 core/api_core.py 下。网页端会提供对应的 插件 和 操作名称 。当服务器会通过操作名称和对应的插件进行禁启用操作。</p>
+<p>(2) 若是启用，则会在 system 数据库文件中的 system_setting 表中的 enable_plugins 中添加插件。反之，则是删除对应插件的信息。</p>
+<p>(3) 服务器将会调用 appdev 包中的 application 模块中的 reload() 函数进行重启。对于 reload() 函数您可以在 开发包与模块 章节中查看详细信息。</p>
+<p>(4) 重启启动时，服务器会重载插件。</p>
+<h2 id="_5">开发：插件的结构</h2>
+<h3 id="_6">目录结构</h3>
+<p>插件我们人为规定了一些特定的结构，</p>
+<p>一个合理的插件必须包含两个文件：</p>
+<pre><code class="language-text">DEVELOPEMENT PLUGIN
+│    __init__.py  # 插件主脚本
+└─   plugin.json  # 插件的说明文件
+</code></pre>
+<h3 id="pluginjson">关于 plugin.json</h3>
+<p>plugin.json 中的内容不能丢失一下信息：</p>
+<pre><code class="language-json">{
+  &quot;PLUGIN_NAME&quot;: &quot;插件名&quot;,
+  &quot;PLUGIN_DESCRIPTION&quot;: &quot;插件介绍&quot;,
+  &quot;PLUGIN_VERSION&quot;: &quot;插件版本&quot;,
+  &quot;PLUGIN_DEVELOPER&quot;: &quot;插件作者&quot;,
+
+  &quot;PLUGIN_WEBSITE&quot;: &quot;插件网址&quot;,
+  &quot;PLUGIN_EMAIL&quot;: &quot;插件邮箱&quot;,
+  &quot;PLUGIN_COPYRIGHT&quot;: &quot;插件版权&quot;
+}
+</code></pre>
+<p>您可以使用空文本替代值，但是不要丢失键。</p>
+<h3 id="__init__py">关于 __init__.py</h3>
+<p>__init__.py 是插件被启用时默认调用的一个脚本。切记，此脚本中不允许存在死循环，否则将会堵塞工具箱的启动。</p>
+<h3 id="hello-world">参考案例 Hello World 插件</h3>
+<p>下面是 Hello World 插件的示例：</p>
+<p>目录结构：</p>
+<pre><code class="language-text">DEVELOPEMENT PLUGIN
+├─   templates
+│   └─  hello world.html  # 插件的主页面文件
+│    __init__.py  # 插件主脚本
+└─   plugin.json  # 插件的说明文件
+</code></pre>
+<p>注意：模板文件尽量使用 插件名称_模板名称 的方式命名，防止与其它插件的模板混淆。</p>
+<p>__init__.py 内容：</p>
+<pre><code class="language-python">import random
+
+import appdev.ui as ui
+from app import app
+
+from flask import Blueprint, render_template
+
+# 插件允许定义蓝图，不过蓝图的绑定需要自己来，见代码最后注册蓝图的地方
+blueprint = Blueprint('helloWorld', __name__, template_folder='templates', static_folder=&quot;static&quot;,
+                      url_prefix=&quot;/helloworld&quot;)
+
+# 注册菜单
+ui.menu_register(&quot;Hello World&quot;)
+ui.menu_register(&quot;Hello World/实例&quot;, &quot;fa-solid fa-code&quot;, &quot;/helloworld&quot;)
+
+# 注册快捷按钮
+ui.set_quickstart_icon(&quot;helloworld&quot;, &quot;你好世界&quot;, &quot;fa-solid fa-earth-africa&quot;, &quot;/helloworld&quot;, 0)
+
+
+# 添加一则公告
+ui.set_notice(&quot;helloworld&quot;, &quot;来自 Hello World 插件的公告&quot;,
+              &quot;&lt;p&gt;这个是一条来自 Hello World 测试公告，您可以在 Python 中 from appdev import ui&lt;/p&gt;\n&quot;
+              &quot;&lt;p&gt;再使用 set_notice(symbol, title, content, [time_]) 来添加！&lt;/p&gt;&quot;)
+
+# 仪表盘添加卡片
+ui.set_dashboard_div(&quot;helloworld1&quot;, &quot;&quot;&quot;
+        &lt;div class=&quot;layui-col-md6&quot;&gt;
+            &lt;div class=&quot;layui-card&quot;&gt;
+                &lt;div class=&quot;layui-card-header&quot;&gt;&lt;i class=&quot;fa-solid fa-flask-vial icon icon-blue&quot;&gt;&lt;/i&gt;helloworld插件测试&lt;/div&gt;
+                &lt;div class=&quot;layui-card-body&quot;&gt;
+                    这个是一条来自 Hello World 测试卡片，您可以在 Python 中 from appdev import ui &lt;br&gt;
+                    然后使用 ui.set_dashboard_div(symbol, html) 来添加这一个卡片。  
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;&quot;&quot;)
+ui.set_dashboard_div(&quot;helloworld2&quot;, f&quot;&quot;&quot;
+        &lt;div class=&quot;layui-col-md6&quot;&gt;
+            &lt;div class=&quot;layui-card&quot;&gt;
+                &lt;div class=&quot;layui-card-header&quot;&gt;&lt;i class=&quot;fa-solid fa-flask-vial icon icon-blue&quot;&gt;&lt;/i&gt;helloworld插件测试&lt;/div&gt;
+                &lt;div class=&quot;layui-card-body&quot;&gt;
+                    一个插件可以创建多个卡片，而且可以定义不同内容。比如生成随机数，你今天的幸运数字是：{random.randint(10000, 99999)} 
+                    &lt;br&gt;&lt;br&gt;&lt;br&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;&quot;&quot;)
+
+
+@blueprint.route(&quot;/&quot;)
+def helloworld():
+    return render_template(&quot;questions_index.html&quot;, )
+
+
+# 等完全加载过一遍代码后，再调用app.py文件中的app注册蓝图函数注册蓝图
+app.register_blueprint(blueprint)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../directory/" class="btn btn-neutral float-left" title="目录结构以及其文件说明"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../appdev/" class="btn btn-neutral float-right" title="开发包与模块">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../directory/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../appdev/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>开发包与模块 - Tab Toolbox for Website 开发文档</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u5f00\u53d1\u5305\u4e0e\u6a21\u5757";
+        var mkdocs_page_input_path = "appdev.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Tab Toolbox for Website 开发文档
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">主页</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">快速开始</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../directory/">目录结构以及其文件说明</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../plugin/">插件的安装与开发</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">开发包与模块</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#appdev">关于 Appdev</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application">模块 application</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exit">exit()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reload">reload()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_writetime_-int-level-int-msg-str-list">log_write(time_: int, level: int, msg: str) -&gt; list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_get_latestlimitint-str">log_get_latest(limit:int) -&gt; str</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_get_by_timestampstar-int-endint-str">log_get_by_timestamp(star: int, end:int) -&gt; str</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#log_level2namen-int-str">log_level2name(n: int) -&gt; str</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_public_path-list">get_public_path() -&gt; list</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consolepy">模块 console.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#plainargs-sep">plain(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logargs-sep">log(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#infoargs-sep">info(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#debugargs-sep">debug(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#successargs-sep">success(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#warnargs-sep">warn(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#warningargs-sep">warning(*args, sep=' ')</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#errorargs-sep">error(*args, sep=' ')</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pluginpy">模块 plugin.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#plugin_load">plugin_load()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_enable-list">get_enable() -&gt; list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_exist-list">get_exist() -&gt; list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#disableplugin-str-bool">disable(plugin: str) -&gt; bool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enableplugin-str-bool">enable(plugin: str) -&gt; bool</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settingpy">模块 setting.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get_setting_data-dict">get_setting_data() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_account_data-dict">get_account_data() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getkey-str-tablesystem_setting-any">get(key: str, table='system_setting') -&gt; any</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setkey-str-value-any-tablesystem_setting-any">set(key: str, value: any, table='system_setting') -&gt; any</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uipy">模块 ui.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#menu_registerpath-str-icon-href-target_self-bool">menu_register(path: str, icon="", href="", target="_self") -&gt; bool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#menu_getpath-str-dict">menu_get(path: str) -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_init_api-dict">get_init_api() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_website_setting-dict">get_website_setting() -&gt; dict</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_quickstart_iconsymbol-str-title-str-icon-str-href-str-mode0">set_quickstart_icon(symbol: str, title: str, icon: str, href: str, mode=0)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_noticesymbol-str-title-str-content-str-time_-str-none">set_notice(symbol: str, title: str, content: str, time_: str = None)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_dashboard_divsymbol-str-html-str">set_dashboard_div(symbol: str, html: str)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../thanks/">开源与感谢</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Tab Toolbox for Website 开发文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>开发包与模块</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">开发包与模块</h1>
+<h2 id="appdev">关于 Appdev</h2>
+<p>在 Tab Toolbox for Website 的根目录 appdev 文件夹中存放着开发者封装好的各种函数，在程序运行时也会调用其中的模块。下面的内容将会介绍中的各个函数的功能。</p>
+<p>文件夹 appdev 中，含有 6 个文件，分别为：__init__.py、application.py、console.py、plugin.py、setting.py、ui.py。</p>
+<p>__init__.py 是用来让 appdev 文件夹有个初始化的脚本，里面没有任何内容。</p>
+<p>想要开始开发，您必须先导入模块与库，比如我要导入 application.py 模块，可以这样写：</p>
+<pre><code class="language-python">from appdev import application
+</code></pre>
+<p>或者</p>
+<pre><code class="language-python">import appdev.application as application
+</code></pre>
+<h2 id="application">模块 application</h2>
+<p>application 集成了一些对程序、日志等功能的操作。</p>
+<h3 id="exit">exit()</h3>
+<p>用于 退出程序 。</p>
+<p>其原理为：在程序启动时，会先创建一个守护进程，此守护进程会正式开启一个 Tab Toolbox for Website 的主程序，并等待其运行结束。exit() 会直接结束守护进程。</p>
+<h3 id="reload">reload()</h3>
+<p>用于 重载程序 。</p>
+<p>其原理为：在程序启动时，会先创建一个守护进程，此守护进程会正式开启一个 Tab Toolbox for Website 的主程序，并等待其运行结束。reload() 函数会直接终止自身的进程，此时守护进程仍然存在，会再次开启一个新的 Tab Toolbox for Website 的主程序。</p>
+<h3 id="log_writetime_-int-level-int-msg-str-list">log_write(time_: int, level: int, msg: str) -&gt; list</h3>
+<p>time_: 时间（时间戳，纳秒级）</p>
+<p>level: 等级</p>
+<p>msg: 内容</p>
+<p>写一条日志 。被 console 模块的控制台输出调用，一般不直接调用此函数写日志。</p>
+<h3 id="log_get_latestlimitint-str">log_get_latest(limit:int) -&gt; str</h3>
+<p>limit: 条数</p>
+<p>返回值：列表(list)，依次从新到旧。[[时间戳(ns), 日志等级, 信息]]</p>
+<p>获取最新的指定条数个日志。</p>
+<h3 id="log_get_by_timestampstar-int-endint-str">log_get_by_timestamp(star: int, end:int) -&gt; str</h3>
+<p>start: 开始时间戳</p>
+<p>end: 结束时间戳</p>
+<p>返回值：列表(list)，依次从新到旧。[[时间戳(ns), 日志等级, 信息]]</p>
+<p>时间戳获取日志。</p>
+<h3 id="log_level2namen-int-str">log_level2name(n: int) -&gt; str</h3>
+<p>n：等级</p>
+<p>返回值：等级对应的名称。</p>
+<p>日志等级获取对应名称。</p>
+<h3 id="get_public_path-list">get_public_path() -&gt; list</h3>
+<p>返回值：公开链接列表。</p>
+<p>说明：如果在 Tab Toolbox for Website 中设置了管理员密码，但是仍然想让非管理员访问一些页面，则需要获取公开链接的列表并添加公开链接。添加链接是允许正则表达式。</p>
+<pre><code class="language-python">get_public_url().append(&quot;/test&quot;)  # 添加 /test 链接允许非管理员用户访问
+get_public_url().remove(&quot;/test&quot;)  # 删除 /test 链接允许非管理员用户访问
+
+get_public_url().append(&quot;/q&quot;)  # 添加 /q 链接允许非管理员用户访问
+get_public_url().remove(&quot;/q/.*&quot;)  # 使用正则表达式添加链接
+</code></pre>
+<h2 id="consolepy">模块 console.py</h2>
+<p>console 集成了对控制台的各种样式输出，并且会自动写日志。</p>
+<h3 id="plainargs-sep">plain(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 plain 等级的日志。</p>
+<h3 id="logargs-sep">log(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 log 等级的日志。</p>
+<h3 id="infoargs-sep">info(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 info 等级的日志。</p>
+<h3 id="debugargs-sep">debug(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 debug 等级的日志。</p>
+<h3 id="successargs-sep">success(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 success 等级的日志。</p>
+<h3 id="warnargs-sep">warn(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>历史遗留函数，相当于 warning() 函数</p>
+<h3 id="warningargs-sep">warning(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 warning 等级的日志。</p>
+<h3 id="errorargs-sep">error(*args, sep=' ')</h3>
+<p>sep：各个字符串之间连接字符。（具体可参考 Python 内置的 print() 函数）</p>
+<p>输出 error 等级的日志。</p>
+<h2 id="pluginpy">模块 plugin.py</h2>
+<p>用于提供插件的操作的模块。</p>
+<h3 id="plugin_load">plugin_load()</h3>
+<p>载入插件，为程序一开始所调用，一般用不到。</p>
+<h3 id="get_enable-list">get_enable() -&gt; list</h3>
+<p>返回值：一个包含启用的插件列表</p>
+<p>获取数据库中启用的插件，返回的是数据库中启用了插件。如果想要查看程序加载插件的数量请用 len(plugin.plugins_pointer) 统计。（注意：这里的列表各个项为 plugins 文件夹中的各插件文件夹名）</p>
+<h3 id="get_exist-list">get_exist() -&gt; list</h3>
+<p>返回值：插件列表</p>
+<p>获取在 plugin 文件夹中有效插件。（注意：这里的列表各个项为 plugins 文件夹中的各插件文件夹名）</p>
+<h3 id="disableplugin-str-bool">disable(plugin: str) -&gt; bool</h3>
+<p>plugin：你要的插件，e.g 你好世界</p>
+<p>返回值：是已经启用且成功删除数据库中的启用设置返回 True，反之亦然</p>
+<p>进行禁用插件。（注意：这里的列表各个项为 plugins 文件夹中的各插件文件夹名）</p>
+<h3 id="enableplugin-str-bool">enable(plugin: str) -&gt; bool</h3>
+<p>plugin：你要的插件，e.g 你好世界</p>
+<p>返回值：存在、未启用且成功设置数据库中的启用设置返回 True，反之亦然</p>
+<p>进行启用插件。（注意：这里的列表各个项为 plugins 文件夹中的各插件文件夹名）</p>
+<h2 id="settingpy">模块 setting.py</h2>
+<p>用来更改系统设置。</p>
+<h3 id="get_setting_data-dict">get_setting_data() -&gt; dict</h3>
+<p>获取数据库中系统的全部设置信息。</p>
+<h3 id="get_account_data-dict">get_account_data() -&gt; dict</h3>
+<p>获取数据库中用户账户的全部设置信息。</p>
+<h3 id="getkey-str-tablesystem_setting-any">get(key: str, table='system_setting') -&gt; any</h3>
+<p>key：系统设置键值，默认找到一个，不可能出现多个</p>
+<p>table：对应表，system_setting -- 系统设置  website_setting -- 网站设置</p>
+<p>返回值：系统设置数据 可能是 str int list dict</p>
+<p>获得设置。</p>
+<h3 id="setkey-str-value-any-tablesystem_setting-any">set(key: str, value: any, table='system_setting') -&gt; any</h3>
+<p>key：系统设置键值，没有则创建。</p>
+<p>value：值 可以是 int str list dict</p>
+<p>table：对应表，system_setting -- 系统设置  website_setting -- 网站设置</p>
+<p>设置项目。</p>
+<h2 id="uipy">模块 ui.py</h2>
+<p>前台框架的操作。</p>
+<h3 id="menu_registerpath-str-icon-href-target_self-bool">menu_register(path: str, icon="", href="", target="_self") -&gt; bool</h3>
+<p>path：菜单的路径，用 "/" 隔开，</p>
+<p>顶部菜单创建方法： 顶部菜单</p>
+<p>侧边菜单创建方法： 顶部菜单/侧边菜单</p>
+<p>子菜单创建方法： 顶部菜单/侧边菜单/姊姊菜单</p>
+<p>icon：菜单图标，参见 Font Awesome Icons(https://fontawesome.com/), 允许 svg ，建议尺寸 13~18px</p>
+<p>href：菜单指向链接</p>
+<p>target：菜单打开位置，默认为 _self 为嵌入式加载。</p>
+<p>注册菜单。</p>
+<pre><code class="language-python">ui.menu_register(&quot;Hello World&quot;)
+ui.menu_register(&quot;Hello World/实例&quot;, &quot;fa-solid fa-code&quot;, &quot;/helloworld&quot;)
+</code></pre>
+<h3 id="menu_getpath-str-dict">menu_get(path: str) -&gt; dict</h3>
+<p>path：菜单的路径，用 "/" 隔开</p>
+<p>返回值：字典，菜单数据 title icon href target</p>
+<p>获取菜单字典，不存在返回空字典。</p>
+<h3 id="get_init_api-dict">get_init_api() -&gt; dict</h3>
+<p>获取初始化 api，前台框架的 init API 一般用不到。</p>
+<h3 id="get_website_setting-dict">get_website_setting() -&gt; dict</h3>
+<p>获取主题模板渲染的参数。数据库中 website_setting 表中的值，启动时获取。</p>
+<h3 id="set_quickstart_iconsymbol-str-title-str-icon-str-href-str-mode0">set_quickstart_icon(symbol: str, title: str, icon: str, href: str, mode=0)</h3>
+<p>symbol：用于标识的符号</p>
+<p>title：按钮标题</p>
+<p>icon：按钮图标，支持 svg 图标</p>
+<p>href：按钮打开链接</p>
+<p>mode：打开方式 0--框架标签页打开  1--框架标签页本页切换</p>
+<p>添加库快捷功能按钮，就是首页上的快捷入口（首页默认为前8个）</p>
+<pre><code class="language-python">ui.set_quickstart_icon(&quot;helloworld&quot;, &quot;你好世界&quot;, &quot;fa-solid fa-earth-africa&quot;, &quot;/helloworld&quot;, 0)
+</code></pre>
+<h3 id="set_noticesymbol-str-title-str-content-str-time_-str-none">set_notice(symbol: str, title: str, content: str, time_: str = None)</h3>
+<p>symbol：公告标识</p>
+<p>title：公告标题</p>
+<p>content：公告内容(html)</p>
+<p>time_：公告时间(默认当前时间 xxxx-xx-xx xx:xx)</p>
+<p>添加或更改公告。</p>
+<pre><code class="language-python">ui.set_notice(&quot;helloworld&quot;, &quot;来自 Hello World 插件的公告&quot;,
+              &quot;&lt;p&gt;这个是一条来自 Hello World 测试公告，您可以在 Python 中 from appdev import ui&lt;/p&gt;\n&quot;
+              &quot;&lt;p&gt;再使用 set_notice(symbol, title, content, [time_]) 来添加！&lt;/p&gt;&quot;)
+</code></pre>
+<h3 id="set_dashboard_divsymbol-str-html-str">set_dashboard_div(symbol: str, html: str)</h3>
+<p>symbol：标识</p>
+<p>html：html代码</p>
+<p>在仪表盘页面放卡片。</p>
+<pre><code class="language-python">ui.set_dashboard_div(&quot;helloworld1&quot;, &quot;&quot;&quot;
+        &lt;div class=&quot;layui-col-md6&quot;&gt;
+            &lt;div class=&quot;layui-card&quot;&gt;
+                &lt;div class=&quot;layui-card-header&quot;&gt;&lt;i class=&quot;fa-solid fa-flask-vial icon icon-blue&quot;&gt;&lt;/i&gt;helloworld插件测试&lt;/div&gt;
+                &lt;div class=&quot;layui-card-body&quot;&gt;
+                    这个是一条来自 Hello World 测试卡片，您可以在 Python 中 from appdev import ui &lt;br&gt;
+                    然后使用 ui.set_dashboard_div(symbol, html) 来添加这一个卡片。  
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&quot;&quot;&quot;)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../plugin/" class="btn btn-neutral float-left" title="插件的安装与开发"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../thanks/" class="btn btn-neutral float-right" title="开源与感谢">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../plugin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../thanks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
